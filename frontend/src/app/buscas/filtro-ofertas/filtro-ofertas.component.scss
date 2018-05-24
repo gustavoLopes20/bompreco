@@ -1,0 +1,311 @@
+@import '../../styles/cores.scss';
+.container-data {
+    width: 100%;
+    display: block;
+    float: left;
+    .wrap-1 {
+        float: left;
+        width: 100%;
+        min-height: 40px;
+        margin-bottom: 25px;
+        box-shadow: 0 0.1em 0.2em rgba(0, 0, 0, .1);
+        border-radius: 3px;
+        padding-left: .75em;
+        padding-right: .75em;
+        padding-top: .75em;
+        margin-right: 40px;
+        .filter-section {
+            float: left;
+            width: 100%;
+            margin-bottom: 20px;
+            .bt {
+                width: 100%;
+                float: left;
+                display: none;
+                @media(max-width: 800px) {
+                    display: block;
+                }
+                button {
+                    display: block;
+                    width: 35px;
+                    height: 35px;
+                    float: right;
+                    cursor: pointer;
+                    transition: all 200ms ease-in-out;
+                    i {
+                        font-size: 2em;
+                        display: none;
+                        color: $color-font-1;
+                        &.active {
+                            display: block;
+                        }
+                    }
+                }
+            }
+            nav {
+                float: left;
+                width: 100%;
+                display: block;
+                @media(max-width: 800px) {
+                    display: none;
+                }
+                &.active-nav {
+                    display: block;
+                }
+                ul {
+                    float: left;
+                    width: 100%;
+                    li {
+                        list-style: none;
+                        float: left;
+                        @media(max-width: 800px) {}
+                        span {
+                            display: block;
+                            float: left;
+                            text-decoration: none;
+                            padding: 10px;
+                            min-width: 100px;
+                            height: 35px;
+                            transition: all .2s ease-in-out;
+                            color: $color-font-1;
+                            cursor: pointer;
+                            &:hover {
+                                color: #fff;
+                                background-color: $color-primary;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .wrap-2 {
+        float: left;
+        width: 100%;
+        min-height: 35px;
+        margin-bottom: 25px;
+        @media(max-width: 900px) {
+            width: 100%;
+        }
+        .list {
+            float: left;
+            width: 100%;
+            ul {
+                display: block;
+                float: left;
+                margin-top: 20px;
+                width: 100%;
+                transition: all .2s ease-in-out;
+                li {
+                    list-style: none;
+                    display: block;
+                    float: left;
+                    width: 178px;
+                    background-color: #fff;
+                    margin: 5px;
+                    user-select: none;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: opacity 400ms, visibility 400ms;
+                    box-shadow: 0 2px 10px 0 rgba(0, 0, 0, .2);
+                    &.visible {
+                        opacity: 1;
+                        //animation: fade 1s;
+                    }
+                    @keyframes fade {
+                        0% {
+                            opacity: 0;
+                        }
+                        100% {
+                            opacity: 1;
+                        }
+                    }
+                    figure {
+                        float: left;
+                        width: 100%;
+                        transition: all 200ms ease-in-out;
+                        position: relative;
+                        overflow: hidden;
+                        .picture {
+                            display: block;
+                            float: left;
+                            width: 100%;
+                            height: 150px;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                                object-fit: contain;
+                            }
+                        }
+                        figcaption {
+                            float: left;
+                            width: 100%;
+                            .desc {
+                                width: 100%;
+                                float: left;
+                                span {
+                                    display: block;
+                                    float: left;
+                                    padding: 5px;
+                                    width: 100%;
+                                    height: 46px;
+                                    color: #464646;
+                                    font-weight: bold;
+                                    margin-top: 8px;
+                                }
+                            }
+                            .price {
+                                position: absolute;
+                                float: right;
+                                bottom: 95px;
+                                right: 10px;
+                                border-radius: 50%;
+                                background-color: red;
+                                width: 60px;
+                                span {
+                                    display: block;
+                                    padding: 5px;
+                                    width: 20px;
+                                    height: 20px;
+                                    color: yellow;
+                                    font-weight: bold;
+                                    padding-left: 19px;
+                                    &.value {
+                                        width: 100%;
+                                        height: 30px;
+                                        padding-left: 11px;
+                                    }
+                                }
+                            }
+                            .estab {
+                                float: left;
+                                width: 100%;
+                                min-height: 25px;
+                                margin-top: 16px;
+                                p {
+                                    text-align: center;
+                                    font-size: 12px;
+                                    color: $color-font-1;
+                                }
+                            }
+                        }
+                        &:hover .retina {
+                            opacity: 1;
+                            box-shadow: inset 0 0 100px 50px rgba(0, 0, 0, .3);
+                            box-sizing: border-box;
+                        }
+                        .retina {
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            top: 0;
+                            left: 0;
+                            opacity: 0;
+                            background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+                            border-radius: 2px;
+                            text-align: center;
+                            padding: 2px;
+                            transition: all .8s cubic-bezier(.190, 1.000, .220, 1.000);
+                            .cart {
+                                float: left;
+                                width: 100%;
+                                height: 45px;
+                                position: relative;
+                                top: 81%;
+                                background-color: transparent;
+                                background-color: $color-primary;
+                                padding: 8px;
+                                .filed {
+                                    float: left;
+                                    margin-right: 8px;
+                                    button {
+                                        display: block;
+                                        float: left;
+                                        width: 30px;
+                                        height: 30px;
+                                        background-color: #ddd;
+                                        cursor: pointer;
+                                        i {
+                                            font-size: 1em;
+                                            color: $color-font-1;
+                                        }
+                                    }
+                                    input {
+                                        width: 30px;
+                                        height: 30px;
+                                        display: block;
+                                        float: left;
+                                        padding: 5px;
+                                        font-size: 1em;
+                                        color: $color-font-1;
+                                    }
+                                }
+                                button {
+                                    display: block;
+                                    float: left;
+                                    outline: none;
+                                    border: 0;
+                                    width: 30px;
+                                    height: 30px;
+                                    background-color: transparent;
+                                    color: #fff;
+                                    cursor: pointer;
+                                    transition: all .2s ease-in-out;
+                                    &:disabled {
+                                        cursor: not-allowed;
+                                        @media(max-width: 800px) {
+                                            background-color: red;
+                                        }
+                                    }
+                                    i {
+                                        font-size: 1.5em;
+                                    }
+                                    &:hover {
+                                        background-color: #fff;
+                                        color: $color-primary;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    // .sombra {
+                    //     float: left;
+                    //     width: 100%;
+                    //     height: 10px;
+                    //     background-size: cover;
+                    //     background-image: url("../../../assets/sombra-produto.png");
+                    // }
+                }
+            }
+        }
+        .not-found {
+            width: 100%;
+            display: block;
+            float: left;
+            opacity: 0;
+            transition: opacity 200ms, visibility 200ms;
+            @keyframes fade {
+                0% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+            span {
+                color: $color-font-1;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        }
+        .pages {
+            width: 100%;
+            display: none;
+            float: left;
+            margin-bottom: 50px;
+            &.active {
+                display: block;
+            }
+        }
+    }
+}

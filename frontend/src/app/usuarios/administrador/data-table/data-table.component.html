@@ -1,0 +1,27 @@
+<div class="container-data">
+    <table>
+        <thead>
+            <tr>
+                <th *ngFor="let col of displayedColumns">{{col}}</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="optionComponent == 1">
+            <tr *ngFor="let item of dataSource" (click)="editItem(item)">
+                <td>{{item.RazaoSocial}}</td>
+                <td>{{item.Cnpj}}</td>
+                <td>{{item.Cidade}}</td>
+                <td>{{item.Estado}}</td>
+            </tr>
+        </tbody>
+        <tbody *ngIf="optionComponent == 2">
+            <tr *ngFor="let item of dataSource" (click)="editItem(item)">
+                <td>{{item.Descricao}}</td>
+                <td>R$ {{item.Preco}}</td>
+                <td>{{item.Categoria.Descricao}}</td>
+                <td>{{item.Empresa.RazaoSocial}}</td>
+                <td>{{item.ValidadeFMT}}</td>
+                <td><img [src]="servidor.mapUrl(item.Imagem.Path)" [alt]="item.Imagem.Title"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

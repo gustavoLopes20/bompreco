@@ -1,0 +1,9 @@
+<div class="container-list">
+    <nav>
+        <ul>
+            <li *ngFor="let item of dataSource">
+                <a (click)="clickItem(item)">{{item.Nome}}</a>
+            </li>
+        </ul>
+    </nav>
+</div>

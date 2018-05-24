@@ -1,0 +1,101 @@
+<div class="container-list">
+
+    <div class="list" [ngClass]="aplicarCssActive()">
+        <table>
+            <thead>
+                <tr>
+                    <th><span>&nbsp;</span></th>
+                    <th><span>Produto</span></th>
+                    <th><span>Empresa</span></th>
+                    <th><span>Validade</span></th>
+                    <th><span>Preço</span></th>
+                    <th><span>Qtd</span></th>
+                    <th><span>SubTotal</span></th>
+                    <th><span>&nbsp;</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of dataSource; let i = index">
+                    <td><img [src]="servidor.mapUrl(item.PathImagem)" [alt]="item.Descricao"></td>
+                    <td>
+                        <h2>{{item.Descricao}}</h2>
+                    </td>
+                    <td class="lowercase"><span>{{item.EmpresaDesc}}</span></td>
+                    <td><span>{{item.ValidadeFMT}}</span></td>
+                    <td><span>R$ {{item.Preco}}</span></td>
+                    <td>
+                        <div class="field">
+                            <button type="button" (click)="decrease(item)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                            <input type="text" (keyup)="validaNum(item)" [name]="item.Descricao" [(ngModel)]="item.Qtd">
+                            <button type="button" (click)="increase(item)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                        </div>
+                    </td>
+                    <td><span>{{item.SubTotalFMT}}</span></td>
+                    <td><button type="button" class="bt-remove" (click)="dellItem(item)"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="tot">
+            <label>Valor Total</label>
+            <span>{{valorTotal}}</span>
+        </div>
+        <div class="pages">
+            <paginator [length]="totPages" (mudouPage)="changePage($event)"></paginator>
+        </div>
+    </div>
+    <div class="responsive-list">
+        <table>
+            <div class="col" *ngFor="let item of dataSource">
+                <div class="wrap">
+                    <tr>
+                        <td><span>&nbsp;</span></td>
+                        <td><img [src]="servidor.mapUrl(item.PathImagem)" [alt]="item.Descricao"></td>
+                    </tr>
+                    <tr>
+                        <th><span>Produto:</span></th>
+                        <td><span>{{item.Descricao}}</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Empresa:</span></th>
+                        <td><span>{{item.EmpresaDesc}}</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Validade:</span></th>
+                        <td><span>{{item.ValidadeFMT}}</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Preço:</span></th>
+                        <td><span>R$ {{item.PrecoFMT}}</span></td>
+                    </tr>
+                    <tr>
+                        <th><span>Qtd:</span></th>
+                        <td>
+                            <div class="field">
+                                <button type="button" (click)="decrease(item)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                <input type="text" (keyup)="validaNum(item)" [name]="item.Descricao" [(ngModel)]="item.Qtd">
+                                <button type="button" (click)="increase(item)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><span>SubTotal:</span></th>
+                        <td><span>{{item.SubTotalFMT}}</span></td>
+                    </tr>
+                    <tr>
+                        <th><span [ngStyle]="{'padding-top': '4px'}">Remove:</span></th>
+                        <td><button type="button" class="bt-remove" (click)="dellItem(item)"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+                    </tr>
+                </div>
+                <div class="sombra"></div>
+            </div>
+        </table>
+        <div class="tot">
+            <label>Valor Total</label>
+            <span>{{valorTotal}}</span>
+        </div>
+        <div class="pages">
+            <paginator [length]="totPages" (mudouPage)="changePage($event)"></paginator>
+        </div>
+    </div>
+    <lanchar-error [ngClass]="aplicarCssError()" mensagem="Não possui itens na lista."></lanchar-error>
+</div>

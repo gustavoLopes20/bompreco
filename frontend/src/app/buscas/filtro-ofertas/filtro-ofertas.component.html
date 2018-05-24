@@ -1,0 +1,53 @@
+<div class="container-data">
+    <div class="wrap-1">
+        <section class="filter-section">
+            <div class="bt">
+                <button type="button" (click)="openNav()">
+                    <i [ngClass]="aplicarCssNav(1)" class="fa fa-caret-up" aria-hidden="true"></i>
+                    <i [ngClass]="aplicarCssNav(2)" class="fa fa-caret-down" aria-hidden="true"></i>
+                </button>
+            </div>
+            <nav [ngClass]="aplicarCss(3)">
+                <ul>
+                    <li *ngFor="let item of menuList" (click)="porCategoria(item.Descricao)">
+                        <span> {{item.Descricao}}</span>
+                    </li>
+                </ul>
+            </nav>
+        </section>
+    </div>
+    <div class="wrap-2">
+        <nav class="list">
+            <ul>
+                <li *ngFor="let oferta of listOfertas" class="visible">
+                    <figure>
+                        <div class="picture">
+                            <img [src]="servidor.mapUrl(oferta.PathImagem)" [alt]="oferta.Descricao">
+                        </div>
+                        <figcaption>
+                            <div class="desc"><span>{{oferta.Descricao}}</span></div>
+                            <div class="price">
+                                <span>R$</span>
+                                <span class="value">{{oferta.PrecoFMT}}</span>
+                            </div>
+                            <div class="estab">
+                                <p>{{oferta.EmpresaDesc}}</p>
+                            </div>
+                        </figcaption>
+                        <div class="retina">
+                            <div class="cart">
+                                <div class="filed">
+                                    <button type="button" (click)="decrease(oferta)"><i class="fa fa-minus" aria-hidden="true"></i></button>
+                                    <input type="text" (keyup)="validNum(oferta)" name="qtdItems" [(ngModel)]="oferta.Qtd">
+                                    <button type="button" (click)="increase(oferta)"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                                </div>
+                                <button type="button" [disabled]="oferta.Carrinho" (click)="addOferta(oferta)"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </figure>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <lanchar-error class="not-found" [active]="!listOfertas.length" mensagem="Sem resultados..."></lanchar-error>
+</div>

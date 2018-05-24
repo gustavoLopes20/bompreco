@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+
+//@import url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+    font-family: 'Roboto Slab', sans-serif;
+    src: url("assets/Font/Roboto/Roboto-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+}
+
+// .mat-dialog-container {
+//     padding: 0 !important;
+//     max-width: 92vw !important;
+// }
+// .mat-spinner {
+//     width: 300px!important;
+//     height: 300px!important;
+//     margin: 0 auto!important;
+// }
+// .mat-progress-spinner svg {
+//     width: 533px!important;
+//     height: 200px!important;
+// }
+textarea {
+    resize: none;
+}
